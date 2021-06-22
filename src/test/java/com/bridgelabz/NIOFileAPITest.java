@@ -41,5 +41,4 @@ public class NIOFileAPITest {
                                                    path.toString().startsWith("temp"))
                 .forEach(System.out::println);
     }
-
 }
