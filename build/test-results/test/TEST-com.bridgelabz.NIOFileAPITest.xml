@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.NIOFileAPITest" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-06-22T02:19:47" hostname="DELL" time="0.017">
+<testsuite name="com.bridgelabz.NIOFileAPITest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-23T09:24:44" hostname="DELL" time="0.092">
   <properties/>
-  <testcase name="givenPathWhenCheckedThenConfirm" classname="com.bridgelabz.NIOFileAPITest" time="0.017">
-    <failure message="java.lang.NullPointerException: Cannot invoke &quot;String.length()&quot; because &quot;input&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;String.length()&quot; because &quot;input&quot; is null
+  <testcase name="givenPathWhenCheckedThenConfirm" classname="com.bridgelabz.NIOFileAPITest" time="0.092"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[java.lang.NullPointerException: Cannot invoke "String.length()" because "input" is null
 	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:98)
 	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
 	at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
 	at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:229)
 	at java.base/java.nio.file.Path.of(Path.java:147)
 	at java.base/java.nio.file.Paths.get(Paths.java:69)
-	at com.bridgelabz.NIOFileAPITest.givenPathWhenCheckedThenConfirm(NIOFileAPITest.java:20)
+	at com.bridgelabz.NIOFileAPITest.givenPathWhenCheckedThenConfirm(NIOFileAPITest.java:21)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -57,8 +58,5 @@
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:832)
-</failure>
-  </testcase>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+]]></system-err>
 </testsuite>
