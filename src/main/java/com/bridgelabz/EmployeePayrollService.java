@@ -37,6 +37,12 @@ public class EmployeePayrollService {
         employeePayrollList.add((new EmployeePayrollData(id, name, salary)));
     }
 
+    public long readEmployeePayrollData(IOService ioService){
+        if(ioService.equals(IOService.FILE_IO))
+            this.employeePayrollList = new EmployeePayrollFileIOService().readData();
+        return employeePayrollList.size();
+    }
+
     public void writeEmployeePayollData(IOService ioService) throws IOException {
         if(ioService.equals(IOService.CONSOLE_IO))
         System.out.println("\n Writing employee Payroll Roaster to Console \n" + employeePayrollList);
