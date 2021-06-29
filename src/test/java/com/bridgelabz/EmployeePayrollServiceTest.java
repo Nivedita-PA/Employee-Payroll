@@ -3,8 +3,11 @@ package com.bridgelabz;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class EmployeePayrollServiceTest {
     @Test
@@ -28,5 +31,12 @@ public class EmployeePayrollServiceTest {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         long entries = employeePayrollService.readEmployeePayrollData(EmployeePayrollService.IOService.FILE_IO);
         Assert.assertEquals(3,entries);
+    }
+
+    @Test
+    public void givenEmployeePayrollInDb_WhenRetrieved_Should_MatchEmployeeCount() {
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        List<EmployeePayrollData> employeePayrollDataList = employeePayrollService.readEmployeePayrollDataDB(EmployeePayrollService.IOService.DB_IO);
+        Assert.assertEquals(3,employeePayrollDataList.size());
     }
 }

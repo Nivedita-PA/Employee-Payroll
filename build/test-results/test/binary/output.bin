@@ -1,2 +1,2 @@
-ž[EmployeePayrollData{id=0, name='null', salary=0.0}, EmployeePayrollData{id=0, name='null', salary=0.0}, EmployeePayrollData{id=0, name='null', salary=0.0}]
-ž[EmployeePayrollData{id=0, name='null', salary=0.0}, EmployeePayrollData{id=0, name='null', salary=0.0}, EmployeePayrollData{id=0, name='null', salary=0.0}]
+oConnecting to database:jdbc:mysql://localhost:3306/payroll_service2?allowPublicKeyRetrieval=true&useSSL=false
+Cconnection is successful!!!com.mysql.jdbc.JDBC4Connection@de13d22

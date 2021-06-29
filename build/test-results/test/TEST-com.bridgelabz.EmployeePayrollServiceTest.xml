@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-24T10:11:40" hostname="DELL" time="0.051">
+<testsuite name="com.bridgelabz.EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-29T18:38:09" hostname="DELL" time="5.483">
   <properties/>
-  <testcase name="givenFileOnReadingFromFileShouldMatchEmployeeCount" classname="com.bridgelabz.EmployeePayrollServiceTest" time="0.051"/>
-  <system-out><![CDATA[[EmployeePayrollData{id=0, name='null', salary=0.0}, EmployeePayrollData{id=0, name='null', salary=0.0}, EmployeePayrollData{id=0, name='null', salary=0.0}]
-[EmployeePayrollData{id=0, name='null', salary=0.0}, EmployeePayrollData{id=0, name='null', salary=0.0}, EmployeePayrollData{id=0, name='null', salary=0.0}]
+  <testcase name="givenEmployeePayrollInDb_WhenRetrieved_Should_MatchEmployeeCount" classname="com.bridgelabz.EmployeePayrollServiceTest" time="5.483"/>
+  <system-out><![CDATA[Connecting to database:jdbc:mysql://localhost:3306/payroll_service2?allowPublicKeyRetrieval=true&useSSL=false
+connection is successful!!!com.mysql.jdbc.JDBC4Connection@de13d22
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
