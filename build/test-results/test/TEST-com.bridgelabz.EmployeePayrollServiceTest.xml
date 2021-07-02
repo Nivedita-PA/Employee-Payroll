@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-29T21:15:25" hostname="DELL" time="1.67">
+<testsuite name="com.bridgelabz.EmployeePayrollServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-02T19:43:27" hostname="DELL" time="0.664">
   <properties/>
-  <testcase name="given_New_Salary_When_Updated_ShouldSync_With_Database" classname="com.bridgelabz.EmployeePayrollServiceTest" time="1.67"/>
+  <testcase name="givenDateRange_When_Retrieved_Should_MatchEmployeeCount" classname="com.bridgelabz.EmployeePayrollServiceTest" time="0.664"/>
   <system-out><![CDATA[Connecting to database:jdbc:mysql://localhost:3306/payroll_service2?allowPublicKeyRetrieval=true&useSSL=false
 connection is successful!!!com.mysql.jdbc.JDBC4Connection@de13d22
 Connecting to database:jdbc:mysql://localhost:3306/payroll_service2?allowPublicKeyRetrieval=true&useSSL=false
-connection is successful!!!com.mysql.jdbc.JDBC4Connection@6ec7d902
-Connecting to database:jdbc:mysql://localhost:3306/payroll_service2?allowPublicKeyRetrieval=true&useSSL=false
-connection is successful!!!com.mysql.jdbc.JDBC4Connection@5716ebb4
+connection is successful!!!com.mysql.jdbc.JDBC4Connection@4c2b9bd7
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

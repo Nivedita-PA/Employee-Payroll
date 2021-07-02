@@ -1,17 +1,12 @@
 package com.bridgelabz;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeePayrollService {
-
-    public List<EmployeePayrollData> readEmployeePayrollDataDB(IOService ioService){
-     if(ioService.equals(IOService.DB_IO))
-         this.employeePayrollList = employeePayrollDBService.readData();
-        return this.employeePayrollList;
-    }
 
     private EmployeePayrollDBService employeePayrollDBService;
 
@@ -26,6 +21,19 @@ public class EmployeePayrollService {
     public EmployeePayrollService(List<EmployeePayrollData> employeePayrollList){
         this();
         this.employeePayrollList = employeePayrollList;
+    }
+
+    public List<EmployeePayrollData> readEmployeeForDateRange(IOService ioService, LocalDate startDate, LocalDate endDate) {
+     if(ioService.equals(IOService.DB_IO))
+         return employeePayrollDBService.getEmployeePayrollDateRange(startDate, endDate);
+        return null;
+    }
+
+
+    public List<EmployeePayrollData> readEmployeePayrollDataDB(IOService ioService){
+        if(ioService.equals(IOService.DB_IO))
+            this.employeePayrollList = employeePayrollDBService.readData();
+        return this.employeePayrollList;
     }
 
     public static void main(String[] args) throws IOException {

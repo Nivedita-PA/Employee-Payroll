@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.awt.*;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,7 +38,7 @@ public class EmployeePayrollServiceTest {
     public void givenEmployeePayrollInDb_WhenRetrieved_Should_MatchEmployeeCount() {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService();
         List<EmployeePayrollData> employeePayrollDataList = employeePayrollService.readEmployeePayrollDataDB(EmployeePayrollService.IOService.DB_IO);
-        Assert.assertEquals(3,employeePayrollDataList.size());
+        Assert.assertEquals(3,employeePayrollDataList);
     }
 
     @Test
@@ -47,5 +48,17 @@ public class EmployeePayrollServiceTest {
         employeePayrollService.updateEmployeeSalary("Terisa",3000000.00);
         boolean result = employeePayrollService.checkEmployeePayrollSyncWithDB("Terisa");
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenDateRange_When_Retrieved_Should_MatchEmployeeCount() {
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        employeePayrollService.readEmployeePayrollDataDB(EmployeePayrollService.IOService.DB_IO);
+        LocalDate startDate = LocalDate.of(2018,01,01);
+        LocalDate endDate = LocalDate.now();
+        List<EmployeePayrollData> employeePayrollDataList = employeePayrollService.readEmployeeForDateRange(EmployeePayrollService.IOService.DB_IO, startDate,
+                endDate);
+        Assert.assertEquals(3,employeePayrollDataList.size());
+
     }
 }

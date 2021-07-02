@@ -29,15 +29,7 @@ public class EmployeePayrollDBService {
 
     public List<EmployeePayrollData> readData() {
        String sql = " SELECT * FROM employee_payroll; ";
-       List<EmployeePayrollData> employeePayrollDataList = new ArrayList<>();
-        try (Connection connection = this.getConnection();){
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
-            employeePayrollDataList = this.getEmployeePayrollData(resultSet);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return employeePayrollDataList;
+      return this.getEmployeePayrollDataUsingDB(sql);
     }
 
     public int updateEmployeeData(String name, double salary) {
@@ -45,13 +37,14 @@ public class EmployeePayrollDBService {
     }
 
     private int updateEmployeeDataUsingStatement(String name, double salary) {
-       String sql = String.format("update employee_payroll set salary = %.2f where name = '%s';",salary,name);
-       try(Connection connection = this.getConnection()){
+        String sql2 = String.format("update employee_payroll set salary = %.2f where name = '%s';",salary,name);
+        try{
+            Connection connection = this.getConnection();
            Statement statement = connection.createStatement();
-           return statement.executeUpdate(sql);
-       }catch (SQLException e){
-           e.printStackTrace();
-       }
+            return statement.executeUpdate(sql2);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
         return 0;
     }
 
@@ -89,10 +82,28 @@ public class EmployeePayrollDBService {
     private void preparedStatementForEmployeeData() {
         try{
            Connection connection = this.getConnection();
-           String sql = "SELECT * FROM employee_payroll WHERE name = ?";
+            String sql = "SELECT * FROM employee_payroll WHERE name = ?";
            employeePayrollDataStatement = connection.prepareStatement(sql);
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public List<EmployeePayrollData> getEmployeePayrollDateRange(LocalDate startDate, LocalDate endDate) {
+        String sql = String.format("SELECT * FROM employee_payroll WHERE START BETWEEN '%S' AND '%S';",
+                                   Date.valueOf(startDate),Date.valueOf(endDate));
+        return this.getEmployeePayrollDataUsingDB(sql);
+    }
+
+    private List<EmployeePayrollData> getEmployeePayrollDataUsingDB(String sql) {
+        List<EmployeePayrollData> employeePayrollDataList = new ArrayList<>();
+        try (Connection connection = this.getConnection();){
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            employeePayrollDataList = this.getEmployeePayrollData(resultSet);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return employeePayrollDataList;
     }
 }
